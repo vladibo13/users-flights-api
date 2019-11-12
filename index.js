@@ -3,23 +3,21 @@ require('dotenv').config();
 //basic config
 const express = require('express');
 const app = express();
+const authRouter = require('./routes/auth');
+const moment = require('moment');
 const bodyParser = require('body-parser');
 const { logger } = require('./utils/logger');
-const moment = require('moment');
-const momentRandom = require('moment-random');
-const randomTime = require('./utils/randomTimeGenerator');
-const countries = require('./utils/randomCountryGenerator')();
+const randomCountries = require('./utils/randomCountryGenerator')();
 
 app.use(bodyParser.json());
+
+app.use('/auth', authRouter);
 
 //test route
 app.get('/', (req, res, next) => {
 	const time = moment().format('MMMM Do YYYY, h:mm:ss a');
+	console.log(randomCountries);
 	logger.info(`test logger at ${time}`);
-	const rTime = randomTime();
-
-	console.log(rTime);
-	console.log(countries);
 	res.send('hello world');
 });
 

@@ -9,7 +9,7 @@ router.use('/register', userValidation);
 router.post('/register', (req, res, next) => {
 	const { userName, password, email } = req.body;
 	usersData[userName] = { userName, password, email };
-	res.send(`${userName} succefully registered...`);
+	return res.send(`${userName} succefully registered...`);
 });
 
 router.use('/login', loginValidation);

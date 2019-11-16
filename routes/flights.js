@@ -19,7 +19,7 @@ router.use('/saveFlights', dataValidation);
 
 router.post('/saveFlights', (req, res, next) => {
 	data.push(req.body);
-	res.send(data);
+	return res.send(data);
 });
 
 module.exports = router;

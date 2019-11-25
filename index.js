@@ -9,7 +9,9 @@ const moment = require('moment');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { logger } = require('./utils/logger');
+const envParamsValidator = require('./utils/envChecker');
 
+// envParamsValidator([ PORT, SECRET ]);
 //alow cross origin requests
 app.use(cors());
 app.use(bodyParser.json());

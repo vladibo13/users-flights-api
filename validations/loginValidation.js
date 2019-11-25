@@ -19,6 +19,7 @@ function loginValidation(req, res, next) {
 	//if everthing matches
 	if (usersData[userName] && usersData[userName].password === password) {
 		logger.info(`user ${userName} logged in `);
+
 		next();
 	}
 }

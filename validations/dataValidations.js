@@ -1,20 +1,29 @@
 const Joi = require('@hapi/joi');
-const moment = require('moment');
 
+// const flightSchema = Joi.array().items(
+// 	Joi.object({
+// 		departure: Joi.date().required(),
+// 		arrival: Joi.date().required(),
+// 		from: Joi.string().required(),
+// 		destination: Joi.string().required(),
+// 		company: Joi.string().required()
+// 	})
+// );
 
+// const flightsSchema = Joi.object({
+// 	flights: Joi.array().items(flightSchema)
+// });
 
 const flightSchema = Joi.object({
-	departure: Joi.string(),
-	arrival: Joi.string(),
+	departure: Joi.date().required(),
+	arrival: Joi.date().required(),
 	from: Joi.string().required(),
 	destination: Joi.string().required(),
 	company: Joi.string().required()
 });
-
 const flightsSchema = Joi.object({
-    flights: Joi.array().items(flightSchema)
-})
-
+	flights: Joi.array().items(flightSchema)
+});
 function dataValidation(req, res, next) {
 	const { error } = flightsSchema.validate(req.body);
 	if (error) return res.json({ error });

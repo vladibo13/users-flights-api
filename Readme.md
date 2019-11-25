@@ -20,3 +20,28 @@
     3. saveFlights – POST 
         a. adding multiple flights objects (or 1 inside array)
         b. validate with Joi the relevant schema [{flight},{flight}…..]
+
+
+## last lesson we focused on JWT authentication
+
+ 
+
+- implementation for 
+
+- sign  token in login
+
+- verify as middlware in flights api data
+
+- Homework are optional for this class
+
+- implement  end2end  authentication with nodejs and jwt
+
+- login will sign a token and response to the client
+
+- client should accespt the token and perform immediately a request to get flights array of data
+
+- the verification should stay on the middleware
+
+- make sure all the operations mentioned above are executed FROM react client
+
+
